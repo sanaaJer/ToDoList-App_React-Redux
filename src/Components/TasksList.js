@@ -1,22 +1,55 @@
-import React from 'react'
+import React, { useState } from 'react'
 import CardTask from './TaskItem';
-import { useSelector } from 'react-redux';
-import { buttonColor, iconsColor, primaryColor } from '../colors';
+import { useDispatch, useSelector } from 'react-redux';
+import {  buttonColor, primaryColor } from '../colors';
+import { deleteAll } from '../Actions/Action';
 
  function TasksList() {
-   // inline-style
-   const secListStyle={ display: 'flex',flexDirection: 'column',width:'40%', padding:'0 1em 1em 1em', backgroundColor:primaryColor,color:'black',borderRadius:18,margin:'4em auto'}
+  // inline-style
+  const secListStyle={ display: 'flex',flexDirection: 'column',width:'50%', padding:'0 1em 1em 1em', backgroundColor:primaryColor,color:'black',borderRadius:18,margin:'4em auto',height:'fit-content'}
   
   // Get tasks from Redux store
   const listTasks = useSelector((state) => state.listTAsks); 
+  // get access to the dispatch function from the Redux store.
+  const dispatch = useDispatch();
+
+  // local state track value of selected element
+  const [valueOption,setValueOption]=useState('all');
+
+
+  // handle chande of select element's value
+  const handleChange=(e)=>{
+     setValueOption(e.target.value)   
+  }
+
+  // handle delete all tasks
+  const handleDeleteAll=()=>{ dispatch(deleteAll())}
 
   return (
- // display list Tasks component section
+ // return list Tasks Component section
   <section style={secListStyle}>
-    <h1>TO DO LIST </h1>
+    <h1>To-Do List </h1>
+    <select
+            id="selectElement"
+            value={valueOption}
+            onChange={handleChange}
+            style={{ padding: '4px', fontSize: '14px', marginTop: '2px', width:100 ,borderRadius:6,backgroundColor:buttonColor,color:'white'}}
+          >
+            <option value="all">All</option>
+            <option value="completed">Completed</option>
+            <option value="active">Active</option>
+    </select>
+    <button onClick={handleDeleteAll}>Delete all </button>
+
     {
-      // map functon to diisplay list of tasks usnig Component CardTask
-      listTasks.map((e)=> (<CardTask {...e} />))
+
+      // map functon to display list of tasks usnig Component CardTask
+      (valueOption==='all'?
+      listTasks:(valueOption==='completed')?
+      listTasks.filter((e)=>e.completed===true)
+      :listTasks.filter((e)=>e.completed===false)  
+      ).map((e)=> <CardTask {...e} />)
+
     }
   </section>
 

@@ -1,4 +1,4 @@
-import { ADDTASK, CHECKCOMPLETED, DELETETASK, EDITTASK, UPDATECOUNTID } from "../Actions/Action";
+import { ADDTASK, CHECKCOMPLETED, DELETEALL, DELETETASK, EDITTASK, UPDATECOUNTID } from "../Actions/Action";
 
 
 const initialState={
@@ -21,17 +21,19 @@ const Reducer=(state=initialState,action)=>{
              };
          case EDITTASK: 
              return {...state,
-                     listTAsks:state.listTAsks.map( (e) => e.id == action.payload.id? 
+                     listTAsks:state.listTAsks.map( (e) => e.id === action.payload.id? 
                      {...e,...action.payload.taskEdit}:e )
               };  
         case CHECKCOMPLETED: 
               return {...state,
-                      listTAsks:state.listTAsks.map( (e) => e.id == action.payload.id? 
-                      {...e,...action.payload.checkStatus}:e )
+                      listTAsks:state.listTAsks.map( (e) => e.id === action.payload.id? 
+                      {...e, completed: action.payload.completed }:e )
                };   
         
         case UPDATECOUNTID: 
                return {...state,idCount:action.payload.idCount};
+
+        case DELETEALL:  return initialState;// delete all : set state to inital state
      
         default: return state;
     }

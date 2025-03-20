@@ -5,7 +5,7 @@ import { checktask, deletetask, updateTask } from '../Actions/Action';
 import { iconsColor, gray } from '../colors';
 
 
-export default function CardTask({ id, title, description,checkStatus }) {
+export default function CardTask({ id, title, description,completed }) {
 
   //inline-style variables
   const cardSectionStyle={ display: 'flex',  boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)', flexDirection: 'row', backgroundColor:'white', color: 'black', marginTop: '1em', borderRadius: '16px', padding: '10px'}
@@ -24,12 +24,8 @@ export default function CardTask({ id, title, description,checkStatus }) {
   const [isEditing, setIsEditing] = useState(false);// used to track mode(Edit mode,View Mode) selected by used
   const [editedTitle, setEditedTitle] = useState(title);// track edited title: text input
   const [editedDescription, setEditedDescription] = useState(description);// track edited description: text area
- 
 
-   //Handle Check task  
-  const handleChecked= () => {
-     dispatch(checktask(id,{checkStatus:!checkStatus}))
-     }
+ 
 
   // Handle Delete
   const handleDelete = () => {
@@ -76,12 +72,13 @@ export default function CardTask({ id, title, description,checkStatus }) {
               type="checkbox"
               name="task"
               style={checkbStyle}
-              checked={checkStatus}
-              onChange={handleChecked}
+               //Handle Check task 
+              onChange={(e)=> dispatch(checktask(id,!completed))}
+              checked={completed}
             />
             {/* Title and Description */}
             <div>
-              <h3 class='titleTask' style={{ margin: 0 }}>{title}</h3>
+              <h3 className='titleTask' style={{ margin: 0 }}>{title}</h3>
               <p style={descriptionStyle}>{description}</p>
             </div>
           </div>

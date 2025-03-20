@@ -3,7 +3,7 @@ export const DELETETASK='DELETETASK'
 export const EDITTASK='EDITTASK'
 export const CHECKCOMPLETED='CHECKCOMPLETED'
 export const UPDATECOUNTID='UPDATECOUNTID'
-
+export const DELETEALL='DELETEALL'
 
 export const addtask = (task) => {
     return {
@@ -26,9 +26,9 @@ export const updateTask=(id,taskEdit)=>(
     }
 );
 
-export const checktask=(id,checkStatus)=>(
-  {type:EDITTASK,
-   payload:{id,checkStatus}
+export const checktask=(id,completed)=>(
+  {type:CHECKCOMPLETED,
+   payload:{id,completed}
   }
 );
 
@@ -36,4 +36,8 @@ export const updateIdCount=(idCount)=>(
   {type:UPDATECOUNTID,
    payload:{idCount}
   }
+);
+
+export const deleteAll=()=>(
+   {type:DELETEALL}
 );

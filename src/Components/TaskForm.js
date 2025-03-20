@@ -30,12 +30,13 @@ export default function AddTask() {
       title: '',
       description: '',
       id: idCount + 1, // Prepare for the next task's ID
+      completed:false
     });
   };
 
   return (
     <section className="formsection">
-      <h1>ADD NEW TASK</h1>
+      <h1>Add New Task</h1>
       {/* form section element */}
       <form onSubmit={addTaskSubmit}>
          {/* Name title task input */}
