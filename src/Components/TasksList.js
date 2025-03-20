@@ -6,7 +6,7 @@ import { deleteAll } from '../Actions/Action';
 
  function TasksList() {
   // inline-style
-  const secListStyle={ display: 'flex',flexDirection: 'column',width:'50%', padding:'0 1em 1em 1em', backgroundColor:primaryColor,color:'black',borderRadius:18,margin:'4em auto',height:'fit-content'}
+  const secListStyle={ display: 'flex',flexDirection: 'column',width:'50%', padding:'0 1em 1em 1em', backgroundColor:primaryColor,color:'black',borderRadius:18,margin:'4em auto'}
   
   // Get tasks from Redux store
   const listTasks = useSelector((state) => state.listTAsks); 
