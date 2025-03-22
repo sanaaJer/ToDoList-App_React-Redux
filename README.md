@@ -1,3 +1,6 @@
+# TODO LIST Application 
+Display todo list, add new task(name,description), edit task,delete task React project , filter tasks by completion status(completed,active ), using Redux for state management.
+React JavaScript App .
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
