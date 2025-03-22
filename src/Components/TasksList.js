@@ -33,13 +33,13 @@ import { deleteAll } from '../Actions/Action';
             id="selectElement"
             value={valueOption}
             onChange={handleChange}
-            style={{ padding: '4px', fontSize: '14px', marginTop: '2px', width:100 ,borderRadius:6,backgroundColor:buttonColor,color:'white'}}
+            
           >
             <option value="all">All</option>
             <option value="completed">Completed</option>
             <option value="active">Active</option>
     </select>
-    <button onClick={handleDeleteAll}>Delete all </button>
+    <button  onClick={handleDeleteAll}>Delete all </button>
 
     {
 

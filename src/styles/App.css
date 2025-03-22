@@ -1,17 +1,16 @@
 body {
   margin:0;
-  background:  linear-gradient(to right, #37013a , #4C1F7A );
+  background:  linear-gradient(to right,  #85c6fc,#B58FFC  );
   font-size: 15px;
+  font-family: 'Poppins',sans-serif;
   
 }
 h1{
-  font-family: "Oxygen", sans-serif;
+ 
   font-weight: 900;
   padding-bottom: 10px;
   padding-top: 5px;
   color:rgb(25, 37, 63);
-
-
 }
 
  /* form style :TaskForm */
@@ -26,26 +25,25 @@ form{
   height: fit-content;
   width:28%;
   border-radius: 18px;
-  background-color:#F0E3E3;
+  background-color:#F2EFE7;
   padding:0 2em 1em 2em;
   }
 
 input[type='submit']{
   color:white;
-  background-color: #008DDA;
+  background-color:#008DDA;
   width:40%;
   height:32px;
   border:none;
   font-size: 16px;
   border-radius: 12px;
   font-weight: 600;
-  text-transform: uppercase;
   margin:1em auto;
-
+  transition: 0.3s;
 }
 
-input[type='submit']:hover{
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Optional: Add glow effect */
+input[type='submit'],select:hover{
+  box-shadow: 0 0 5px #219B9D; /* Optional: Add glow effect */
 
 }
 input,textarea{
@@ -91,3 +89,15 @@ button{
 button:hover{
   color: #1a9fe7;
 }
+
+select{
+   padding: 4px;
+     font-size: 14px;
+     margin-top: 2px;
+      width:100px ;
+      border-radius:6px;
+      background-color:#008DDA;
+      color:white;
+      outline: none;
+}
+
