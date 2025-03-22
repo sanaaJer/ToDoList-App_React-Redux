@@ -42,9 +42,8 @@ input[type='submit']{
   transition: 0.3s;
 }
 
-input[type='submit'],select:hover{
-  box-shadow: 0 0 5px #219B9D; /* Optional: Add glow effect */
-
+input[type='submit']:hover, select:hover{
+  box-shadow: 0 0 5px #219B9D; 
 }
 input,textarea{
   border-radius: 6px;
