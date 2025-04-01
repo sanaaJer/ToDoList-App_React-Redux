@@ -2,7 +2,7 @@
 Display todo list, add new task(name,description), edit task,delete task React project , filter tasks by completion status(completed,active ), using Redux for state management.
 React JavaScript App .
 
-![Alt Text](scrnshot.png)
+![Todo List Screenshot](scrnshot.PNG)
 
 # Getting Started with Create React App
 
