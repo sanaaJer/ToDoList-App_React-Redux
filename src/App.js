@@ -6,7 +6,7 @@ import TasksList from './Components/TasksList'
 
 function App() {
   // inline style conts
-  const divStyle={display:'flex',flexDirection:'row'}
+  const divStyle={display:'flex',flexWrap: 'wrap',flexDirection:'row',gap:'40px'}
 
   return (
     <div style={divStyle}>
