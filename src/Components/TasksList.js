@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import CardTask from './TaskItem';
 import { useDispatch, useSelector } from 'react-redux';
-import {  buttonColor, primaryColor } from '../colors';
+import {   primaryColor } from '../colors';
 import { deleteAll } from '../Actions/Action';
 
  function TasksList() {
